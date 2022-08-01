@@ -24,8 +24,17 @@ public class MyPlant {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private String plantName;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "log_id")
+    private PlantLog plantLog;
 
+    //갱신일이 외래키로 들어갔는데 이게 맞는지 의문,, 더 구글링해봐야겠다..
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "updatedAt")
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
+
+    private String plantName;
     private String plantType;
 
     private int level;
@@ -34,12 +43,9 @@ public class MyPlant {
     private String content;
 
     private String plantImage;
-
     private String status;
+
 
     @CreatedDate
     private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
 }
