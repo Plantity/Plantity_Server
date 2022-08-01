@@ -13,11 +13,18 @@ import java.time.LocalDateTime;
 @Getter
 public class PlantFollowing {
 
+    @Id @GeneratedValue
+    @Column(name = "following_idx")
+    private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    private int following_idx; //찜한식물번호
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "plant_id")
+    private Plant plant; //찜한식물의 번호
+
     private String status; //식물상태
 
     @CreatedDate
