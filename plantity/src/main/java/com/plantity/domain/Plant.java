@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Plant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int following_idx;
+    private int plantId;
 
     private User user;
     private String status;
