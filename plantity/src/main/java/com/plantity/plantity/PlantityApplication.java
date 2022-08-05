@@ -10,6 +10,7 @@ public class PlantityApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PlantityApplication.class, args);
+		// DB 나오도록 코드 짜보기
 	}
 
 }
